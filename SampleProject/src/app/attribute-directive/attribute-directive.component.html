@@ -1,0 +1,28 @@
+<p [ngClass]="{loading:isLoading, success:isSuccess, error:isError, active:isActive }">For test the ngClass directives</p>
+<button style="color:green" (click)="toggleisSuccess()">Success</button>
+<button style="color:red" (click)="toggleisError()">Error</button>
+<button style="color:wheat"  (click)="toggleisLoading()">Loading</button>
+
+<p [class.success]="isSuccess" [class.active]="isActive" [class.error]="isError" [class.loading]="isLoading">For test the ngClass directives</p>
+
+
+<p [ngStyle]="{color:textColor, fontSize:'20px' }">For testing the ngStyle attribute</p>
+<p [style.color]="textColor">For testing the ngStyle attribute</p>
+
+<h3>ngModal testing</h3>
+<input type="text" [(ngModel)]="username">
+<p>{{username}}</p>
+<input type="checkbox" [(ngModel)]="isAccepted">{{isAccepted}}
+<label>
+    <input type="radio" [(ngModel)]="gender" value="Male">Male
+</label>
+<label>
+    <input type="radio" [(ngModel)]="gender" value="FeMale">FeMale
+</label>{{gender}}
+
+<select [(ngModel)]="country">
+    <option value="">Select a country</option>
+    <option value="India">India</option>
+    <option value="USA">U.S.A</option>
+    <option value="Chaina">Chaina</option>
+</select>{{country||"No country selected"}}

@@ -1,0 +1,87 @@
+<input type="checkbox" (change)="toggleButton()"> Terms & conditions
+@if(showSubmit){
+    <button>Submit</button>
+}
+<br>
+Input1: <input type="text" (input)="setS1($event)">
+Input2: <input type="text" (input)="setS2($event)">
+@if(s1===s2){
+    <h1>Is same</h1>
+}
+@else{
+    <h1>Not same</h1>
+}
+
+<div class="forDirective">
+    <h1>For directive</h1>
+
+    <div>
+        <p>Drop down using for</p>
+        <select>
+            @for(emp of employees; track emp.empNumber){
+                <option value="emp.empEmail">{{emp.empEmail}}</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <p>using For to generate tables</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Dept</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(emp of employees;track emp.empNumber){
+                    <tr>
+                        <td>{{emp.empNumber}}</td>
+                        <td>{{emp.empName}}</td>
+                        <td>{{emp.empEmail}}</td>
+                        <td>
+                            @switch(emp.empDept){
+                                @case("CSE"){
+                                    Computer Science and engineering
+                                }
+                                @case("CMS"){
+                                    Artificial Intellegence & Machine learning
+                                }
+                                @case("CSD"){
+                                    Data Science
+                                }
+                                @case("IT"){
+                                    Information technology
+                                }
+                                @default{
+                                    Department Not found
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <ol>
+        @for(emp of employees;track emp.empNumber;let first=$first; let last=$last;let even=$even;let index=$index ;let odd=$odd;let count=$count){
+            @if(first){
+                <p>List of employees</p>
+            }
+            @if(odd){
+                <li style="background-color: wheat;">{{emp.empName}} -- {{index+1}} of {{count}}</li>
+            }
+            @else{
+                <li style="background-color: white;">{{emp.empName}} -- {{index+1}} of {{count}}</li>
+            }
+            @if(last){
+                <p>End of list</p>
+            }
+        }
+        @empty{
+            <h1>No data</h1>
+        }
+    </ol>
+</div>
