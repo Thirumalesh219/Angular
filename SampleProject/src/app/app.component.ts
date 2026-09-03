@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { UserComponent } from './user/user.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,UserComponent],
+  imports: [RouterOutlet,RouterLink,RouterLinkActive,UserComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'SampleProject';
+  user = 'users';
 }

@@ -1,3 +1,15 @@
-<router-outlet></router-outlet>
+
 <h1>App component</h1>
-<app-user></app-user>
+
+<nav class="navbar">
+    <div class="logo">MyWebsite</div>
+
+    <ul class="nav-links">
+        <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+        <li><a [routerLink]="'user'" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">User</a></li>
+        <li><a [routerLink]="['structuralDirectives']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Structural Directive</a></li>
+        <li><a routerLink="attributeDirectives" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Attribute Directive</a></li>
+        <li><a routerLink="signals" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Signals</a></li>
+    </ul>
+</nav>
+<router-outlet></router-outlet>
