@@ -1,0 +1,14 @@
+.container {
+    height: 50vh;
+    border: 2px solid gray;
+    display: flex;         
+    justify-content: center; 
+    align-items: center;     
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
