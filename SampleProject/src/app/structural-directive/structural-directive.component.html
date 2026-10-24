@@ -62,6 +62,9 @@ Input2: <input type="text" (input)="setS2($event)">
                         </td>
                     </tr>
                 }
+                @empty{
+                    <tr>No data found</tr>
+                }
             </tbody>
         </table>
     </div>

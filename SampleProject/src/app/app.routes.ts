@@ -5,6 +5,7 @@ import { AttributeDirectiveComponent } from './attribute-directive/attribute-dir
 import { SignalsComponent } from './signals/signals.component';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ChangeDetectorComponent } from './change-detector/change-detector.component';
 
 export const routes: Routes = [
     {
@@ -22,6 +23,10 @@ export const routes: Routes = [
     {
         path:"signals",
         component:SignalsComponent
+    },
+    {
+        path:"detector",
+        component:ChangeDetectorComponent
     },
     {
         path:"**",
