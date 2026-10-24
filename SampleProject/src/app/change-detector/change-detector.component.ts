@@ -21,14 +21,14 @@ export class ChangeDetectorComponent implements DoCheck {
   increment() {
   console.log('Button clicked', Date.now());
 
-  // setTimeout(() => {
-  //   console.log('Timer callback started', Date.now());
+  setTimeout(() => {
+    console.log('Timer callback started', Date.now());
 
-  //   this.counter.update(v=>v+1);
+    this.counter.update(v=>v+1);
 
-  //   console.log('Counter updated', this.counter());
+    console.log('Counter updated', this.counter());
     
-  // }, 3000);
+  }, 3000);
 
     // this.ref.markForCheck();
     // this.counter++;
