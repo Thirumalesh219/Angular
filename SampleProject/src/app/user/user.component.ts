@@ -1,17 +1,52 @@
-import { Component, DoCheck } from '@angular/core';
-import { StructuralDirectiveComponent } from '../structural-directive/structural-directive.component';
-import { AttributeDirectiveComponent } from '../attribute-directive/attribute-directive.component';
-import { SignalsComponent } from '../signals/signals.component';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
-export class UserComponent implements DoCheck {
-  ngDoCheck(): void {
-    console.log("Do check in User Component");
+export class UserComponent implements OnDestroy, OnInit, OnChanges,DoCheck,AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked {
+  ngOnDestroy(): void {
+    console.log("On destory in User component");
   }
-  submit(){}
+  constructor(private rtr:Router){
+    console.log("Constructor")
+  }
+  ngOnInit(): void {
+    console.log("On init");
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("On Changes")
+  }
+  ngDoCheck(): void {
+    console.log("Ng Do check");
+  }
+  ngAfterContentInit(): void {
+    console.log("After Content initialization");
+  }
+  ngAfterContentChecked(): void {
+    console.log("After Content got checked")
+  }
+  ngAfterViewInit(): void {
+    console.log("Ng after view Init");
+  }
+  ngAfterViewChecked(): void {
+    console.log("After view checked");
+  }
+  // userName:string="";
+  // password:string="";
+  // errorMessage:string="";
+  submit(){
+  //   if(this.userName==="thiru" && this.password==="1234"){
+  //     this.errorMessage="";
+      this.rtr.navigate(["detector"]);
+  //     // this.rtr.navigateByUrl("detector");
+  //   }
+  //   else{
+  //     this.errorMessage="Invalid Credentials";
+  //   }
+  }
 }

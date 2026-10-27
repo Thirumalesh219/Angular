@@ -6,6 +6,7 @@ import { SignalsComponent } from './signals/signals.component';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ChangeDetectorComponent } from './change-detector/change-detector.component';
+import { BuiltInPipesComponent } from './built-in-pipes/built-in-pipes.component';
 
 export const routes: Routes = [
     {
@@ -27,6 +28,10 @@ export const routes: Routes = [
     {
         path:"detector",
         component:ChangeDetectorComponent
+    },
+    {
+        path:"built-in-pipes",
+        component:BuiltInPipesComponent
     },
     {
         path:"**",

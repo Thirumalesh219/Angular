@@ -36,7 +36,7 @@ export class SignalsComponent{
     },5000)
 
     effect(()=>{
-      console.log(this.a(),this.counter(),"In the effect1");
+      console.log(this.a(),"In the effect1");
     })
 
     effect(()=>{
