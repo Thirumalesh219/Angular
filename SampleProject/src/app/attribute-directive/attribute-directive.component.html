@@ -26,3 +26,11 @@
     <option value="USA">U.S.A</option>
     <option value="Chaina">Chaina</option>
 </select>{{country||"No country selected"}}
+<h2>User data</h2>
+<p>{{userData.id}}</p>
+<p>{{userData.name}}</p>
+<p>{{userData.userName}}</p>
+<p>{{userData.email}}</p>
+@for(u of apiData;track u.id){
+    <p>{{u | json}}</p>
+}

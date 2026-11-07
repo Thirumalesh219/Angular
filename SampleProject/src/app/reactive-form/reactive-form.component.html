@@ -1,0 +1,67 @@
+<div class="container">
+    <form class="login" [formGroup]="reactiveFormBuilder" (ngSubmit)="onSubmit()">
+        <h3>Reacttive form</h3>
+        <label>Firstname</label>
+        <input type="text" placeholder="Enter Firstname" name="firstName" formControlName="firstName">
+        @if(reactiveFormBuilder.controls['firstName'].dirty || reactiveFormBuilder.controls['firstName'].touched){
+            
+            @if(reactiveFormBuilder.controls['firstName'].errors?.["required"]){
+                <p>Firstname is required</p>
+            }
+            @if(reactiveFormBuilder.controls['firstName'].errors?.["minlength"]){
+                <p>Minimum length is 5</p>
+            }
+            @if(reactiveFormBuilder.controls['firstName'].errors?.["maxlength"]){
+                <p>Minimum length is 15</p>
+            }
+        }
+        <label>Lastname</label>
+        <input type="text" placeholder="Enter Lastname" name="lastName" formControlName="lastName">
+        @if(reactiveFormBuilder.controls['lastName'].dirty || reactiveFormBuilder.controls['lastName'].touched){
+            
+            @if(reactiveFormBuilder.controls['lastName'].errors?.["required"]){
+                <p>Lastname is required</p>
+            }
+        }
+        <label>Email address</label>
+        <input type="email" placeholder="Enter email address" name="email" formControlName="email">
+        @if(reactiveFormBuilder.controls['email'].dirty || reactiveFormBuilder.controls['email'].touched){
+            @if(reactiveFormBuilder.controls['email'].errors?.["required"]){
+                <p>Email is required</p>
+            }
+            @if(reactiveFormBuilder.controls['email'].errors?.["email"]){
+                <p>Enter a valid email</p>
+            }
+        }
+        <label>Password</label>
+        <input type="password" placeholder="Enter Password" name="password" formControlName="password">
+        <div formGroupName="address">
+            <h4>Address</h4>
+            <label>City</label>
+            <input type="text" placeholder="Enter City" name="lastName" formControlName="city">
+            <label>Street</label>
+            <input type="text" placeholder="Enter Street" name="email" formControlName="street">
+            <label>Pincode</label>
+            <input type="number" placeholder="Enter Pincode" name="password" formControlName="pincode">
+        </div>
+        <div>
+            <input type="checkbox" placeholder="" name="isChecked" formControlName="isChecked">
+            <label>Check me out</label>
+        </div>
+        <div formArrayName="skills">
+            <button (click)="addSkill()" type="button"> Add skill</button> 
+            @for(skill of skills.value;track $index){
+                <!-- <div formGroupName="$index"></div> -->
+                <p>{{$index+1}}:- <input type="text" [formControlName]="$index"><button type="button" (click)="deleteSkill($index)">Delete</button></p>
+                
+            }
+            @empty{
+                <p>No skills found</p>
+            }
+        </div>
+        <input type="submit" [disabled]="reactiveFormBuilder.invalid"/>
+        <button type="button" (click)="setValues()">Set the values</button>
+        <button type="button" (click)="patchValues()">Patch values</button>
+        <button type="button" (click)="resetValues()">Reset values</button>
+    </form>
+</div>

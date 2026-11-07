@@ -1,0 +1,67 @@
+<h2>User data from Service</h2>
+<table>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Username
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+    @for(u of UserData;track u.id){
+        <tr>
+            <td>
+                {{u.id}}
+            </td>
+            <td>
+                {{u.name}}
+            </td>
+            <td>
+                {{u.username}}
+            </td>
+            <td>
+                {{u.email}}
+            </td>
+            <td>
+                <button (click)="editUser(u.id)" [disabled]="editingUser || addingNewUser">Edit</button>
+                <button (click)="deleteUser(u.id)">Delete</button>
+            </td>
+        </tr>
+    }
+</table>
+<button (click)="addNewUser()" [disabled]="addingNewUser || editingUser">Add User</button>
+@if(addingNewUser && !editingUser){
+    <form [formGroup]="addUserForm" (ngSubmit)="createUser()">
+        <h2>Add new User</h2>
+        <label>Name</label>
+        <input type="text" placeholder="Enter name" formControlName="name">
+        <label>Username</label>
+        <input type="text" placeholder="Enter username" formControlName="username">
+        <label>Email</label>
+        <input type="text" placeholder="Enter email" formControlName="email">
+        <input type="submit" value="Add user">
+    </form>
+    <button (click)="resetForm()">quit</button>
+}
+@if(!addingNewUser && editingUser){
+    <form [formGroup]="editUserForm" (ngSubmit)="modifyUser()">
+        <h2>Edit User</h2>
+        <label>Name</label>
+        <input type="text" placeholder="Enter name" formControlName="name">
+        <label>Username</label>
+        <input type="text" placeholder="Enter username" formControlName="username">
+        <label>Email</label>
+        <input type="text" placeholder="Enter email" formControlName="email">
+        <input type="submit" value="Submit">
+    </form>
+    <button (click)="resetForm()">quit</button>
+}

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { SharedDataService } from '../shared-data.service';
 
 @Component({
   selector: 'app-attribute-directive',
@@ -8,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './attribute-directive.component.html',
   styleUrl: './attribute-directive.component.scss'
 })
-export class AttributeDirectiveComponent {
+export class AttributeDirectiveComponent implements OnInit {
   isSuccess:boolean=false;
   isLoading:boolean=true;
   isError:boolean=false;
@@ -18,7 +19,15 @@ export class AttributeDirectiveComponent {
   gender:string="";
   isAccepted:boolean=false;
   country:string="Select country";
+  userData:any;
+  apiData:any;
+  constructor(private sharedData:SharedDataService){
+    this.userData=this.sharedData.userData;
+  }
 
+  ngOnInit(): void {
+    this.sharedData.getUsers().subscribe(res => this.apiData=res)
+  }
   toggleisSuccess(){
     this.isSuccess=true;
     this.isLoading=false;

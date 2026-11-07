@@ -1,0 +1,38 @@
+<div class="container">
+    <form class="login" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <pre>Value :{{userForm.value | json}}</pre>
+        <pre>valid :{{userForm.valid}}</pre>
+        <pre>invalid :{{userForm.invalid}}</pre>
+        <pre>touched :{{userForm.touched}}</pre>
+        <pre>untouched : {{userForm.untouched}}</pre>
+        <pre>submitted : {{userForm.submitted}}</pre>
+        <h3>User Information</h3>
+        <label>Firstname</label>
+        <input type="text" placeholder="Enter Firstname" name="firstName" [(ngModel)]="userData.firstName" minlength="5" maxlength="15" #fname="ngModel" required>
+        Errors{{fname.errors | json}}
+        Dirty{{fname.dirty}}
+        touched{{fname.touched}}
+        @if(fname?.touched || fname?.dirty){
+            @if(fname?.errors?.["required"]){
+                <p>Firstname is required</p>
+            }
+            @if(fname?.errors?.["minlength"]){
+                <p>Minimum length is 5</p>
+            }
+        }
+        <label>Lastname</label>
+        <input type="text" placeholder="Enter Lastname" name="lastName" [(ngModel)]="userData.lastName" pattern="^[a-zA-Z]+$" required>
+        <label>Email address</label>
+        <input type="email" placeholder="Enter email address" name="email" [(ngModel)]="userData.email" email required>
+        <label>Password</label>
+        <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="userData.password">
+        <div>
+            <input type="checkbox" placeholder="" name="isChecked" [(ngModel)]="userData.isChecked">
+            <label>Check me out</label>
+        </div>
+        <input type="submit" [disabled]="!userForm.valid"/>
+        <button type="button" (click)="setValues(userForm)">Set the values</button>
+        <button type="button" (click)="patchValues(userForm)">Patch values</button>
+        <button type="button" (click)="resetValues(userForm)">Reset values</button>
+    </form>
+</div>
