@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IUser } from './iuser';
+import { IUser } from '../iuser';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,9 @@ export class CrudService {
   constructor(private http:HttpClient) { }
   getUsers(){
     return this.http.get<IUser[]>(`${this.API_URL}/users`);
+  }
+  getUser(userId:number){
+    return this.http.get<IUser>(`${this.API_URL}/users/${userId}`);
   }
   addUser(user:IUser){
     return this.http.post(`${this.API_URL}/users`,user);

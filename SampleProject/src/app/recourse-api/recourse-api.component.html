@@ -1,0 +1,48 @@
+<h2>resocurse and rxResource API</h2>
+<app-reuse [welcome]="welcomeString"></app-reuse>
+<table>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Username
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Password
+        </th>
+    </tr>
+    @if(UserData.isLoading())
+    {
+        <p>Loading users</p>
+    }
+    @else if(UserData.hasValue())
+    {
+        @for(u of UserData.value();track u.user_id)
+        {
+            <tr>
+                <td>
+                    {{u.user_id}}
+                </td>
+                <td>
+                    {{u.name}}
+                </td>
+                <td>
+                    {{u.username}}
+                </td>
+                <td>
+                    {{u.email}}
+                </td>
+                <td>
+                    {{u.password}}
+                </td>
+            </tr>
+        }
+    }
+</table>

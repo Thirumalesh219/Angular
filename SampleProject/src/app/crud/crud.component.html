@@ -1,4 +1,5 @@
 <h2>User data from Service</h2>
+<app-reuse [welcome]="welcomeString"></app-reuse>
 <table>
     <tr>
         <th>
@@ -33,6 +34,7 @@
             </td>
             <td>
                 <button (click)="editUser(u.id)" [disabled]="editingUser || addingNewUser">Edit</button>
+                <button (click)="viewUser(u.id)">View</button>
                 <button (click)="deleteUser(u.id)">Delete</button>
             </td>
         </tr>

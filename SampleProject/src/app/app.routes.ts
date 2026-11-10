@@ -11,6 +11,8 @@ import { TemplateDrivenFormComponent } from './template-driven-form/template-dri
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CRUDComponent } from './crud/crud.component';
+import { CrudViewComponent } from './crud-view/crud-view.component';
+import { RecourseApiComponent } from './recourse-api/recourse-api.component';
 
 export const routes: Routes = [
     {
@@ -52,6 +54,14 @@ export const routes: Routes = [
     {
         path:"crud",
         component:CRUDComponent
+    },
+    {
+        path:"crudview/:id",
+        component:CrudViewComponent
+    },
+    {
+        path:"resourceApi",
+        component:RecourseApiComponent
     },
     {
         path:"**",

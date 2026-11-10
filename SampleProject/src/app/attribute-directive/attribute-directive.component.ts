@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SharedDataService } from '../shared-data.service';
+import { SharedDataService } from '../Services/shared-data.service';
 
 @Component({
   selector: 'app-attribute-directive',

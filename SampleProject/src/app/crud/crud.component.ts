@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudService } from '../crud.service';
+import { CrudService } from '../Services/crud.service';
 import { IUser } from '../iuser';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ReuseComponent } from '../reuse/reuse.component';
 
 @Component({
   selector: 'app-crud',
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule,ReuseComponent],
   templateUrl: './crud.component.html',
   styleUrl: './crud.component.scss'
 })
@@ -17,6 +18,7 @@ export class CRUDComponent implements OnInit {
   editingUser:boolean=false;
   addUserForm:FormGroup;
   editUserForm:FormGroup;
+  welcomeString="Hey you are on CRUD component"
   
   constructor(private CrudService:CrudService,private router:Router,private fb:FormBuilder){
     this.addUserForm=this.fb.group({
@@ -75,5 +77,8 @@ export class CRUDComponent implements OnInit {
     this.CrudService.deleteUser(userId).subscribe(res => {
       this.getData();
     });
+  }
+  viewUser(userId:number){
+    this.router.navigate(["crudview",`${userId}`])
   }
 }
