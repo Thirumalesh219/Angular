@@ -22,7 +22,7 @@ export class AttributeDirectiveComponent implements OnInit {
   userData:any;
   apiData:any;
   constructor(private sharedData:SharedDataService){
-    this.userData=this.sharedData.userData;
+    this.userData=this.sharedData.userData();
   }
 
   ngOnInit(): void {

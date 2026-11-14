@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { SharedDataService } from '../Services/shared-data.service';
 import { CommonModule } from '@angular/common';
 
@@ -14,7 +14,11 @@ export class ProfileComponent {
   isEligible:boolean;
   constructor(){
     this.sharedData=inject(SharedDataService);
-    this.userData=this.sharedData.userData;
+    console.log(this.sharedData.userData());
+    this.userData = computed(() => this.sharedData.userData());
     this.isEligible=this.sharedData.isEligible();
+  }
+  updateUser(){
+    this.sharedData.updateName();
   }
 }

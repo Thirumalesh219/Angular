@@ -18,7 +18,7 @@ export class CRUDComponent implements OnInit {
   editingUser:boolean=false;
   addUserForm:FormGroup;
   editUserForm:FormGroup;
-  welcomeString="Hey you are on CRUD component"
+  welcome="Hey you are on CRUD component"
   
   constructor(private CrudService:CrudService,private router:Router,private fb:FormBuilder){
     this.addUserForm=this.fb.group({

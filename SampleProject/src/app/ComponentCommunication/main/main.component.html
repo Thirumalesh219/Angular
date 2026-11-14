@@ -1,0 +1,14 @@
+<div>
+    <h3>Main component</h3>
+    <div style="border: 2px solid black;background-color: yellowgreen; padding: 20px; display: flex; gap: 30px;">
+        <app-parent-cto-p></app-parent-cto-p>
+        <div style="border: 2px solid black; background-color: yellow;">
+            <h2>Sibling Communication</h2>
+            <div style="display: flex; gap: 20px; padding: 20px; background-color: aquamarine;">
+                <app-sib1 (sendOutputText)="setSib2Value($event)" [inputText]="sib1Text"></app-sib1>
+                <app-sib2 (sendOutputText)="setSib1Value($event)" [inputText]="sib2Text"></app-sib2>
+            </div>
+        </div>
+        <app-reuse #reusable></app-reuse>
+    </div>
+</div>
