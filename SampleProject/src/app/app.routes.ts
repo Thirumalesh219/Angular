@@ -14,6 +14,7 @@ import { CRUDComponent } from './crud/crud.component';
 import { CrudViewComponent } from './crud-view/crud-view.component';
 import { RecourseApiComponent } from './recourse-api/recourse-api.component';
 import { MainComponent } from './ComponentCommunication/main/main.component';
+import { SessionComponent } from './Storage/session/session.component';
 
 export const routes: Routes = [
     {
@@ -67,6 +68,10 @@ export const routes: Routes = [
     {
         path:"component-communication",
         component:MainComponent
+    },
+    {
+        path:"session",
+        component:SessionComponent
     },
     {
         path:"**",

@@ -1,0 +1,25 @@
+<div>
+    <h1>Session Storage Session value:{{sessionValue}}</h1>
+    <div style="display: flex; width: 30%; gap: 20px;">
+    <button (click)="setSession()">Set item</button>
+    <button (click)="getSession()">Get item</button>
+    <button (click)="removeSession()">Remove item</button>
+    <button (click)="clearSession()">Clear session</button>
+    </div>
+    
+    <h1>Local Storage Local value:{{localValue}}</h1>
+    <div style="display: flex; width: 30%; gap: 20px;">
+    <button (click)="setlocal()">Set item</button>
+    <button (click)="getlocal()">Get item</button>
+    <button (click)="removelocal()">Remove item</button>
+    <button (click)="clearlocal()">Clear session</button>
+    </div>
+
+    <h1>Cookie Storage Cookie value:{{cookieValue}}</h1>
+    <div style="display: flex; width: 30%; gap: 20px;">
+    <button (click)="setCookie()">Set item</button>
+    <button (click)="getCookie()">Get item</button>
+    <button (click)="deleteCookie()">Delete Cookie</button>
+    <button (click)="deleteAllCookie()">Delete All Cookie</button>
+    </div>
+</div>
